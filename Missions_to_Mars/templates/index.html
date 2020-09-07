@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Mission to Mars</title>
+  <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 
@@ -20,19 +21,19 @@
     <div class="row">
       <div class="col-md-12">
         <h2><strong>Latest Mars News</strong></h2>
-        <h4 class="heading">{{mission.news_title}}</h4>
-        <p>{{mission.news_p}}</p>
+        <h4 class="heading">{{mission['News Title']}}</h4>
+        <p>{{mission['News Para.']}}</p>
       </div>
     </div>
 
     <div class = "row">
-        <div class="col-md-8">
+        <div class="col-md-7">
             <h2><strong>Featured Mars Image</strong></h2>
-            <img src = {{mission.featured_image_url}}>
+            <img src = "{{mission['Featured Image URL']}}" width:='700' height='600' class="rounded float-left" alt="Featured Image" />
         </div>
-        <div class="col-md-4">
+        <div class="col-md-5">
             <h4><strong>Mars Facts</strong></h4>
-            <p>{{mission.html_table}}</p>
+            <p>{{mission['Mars Table']}}</p>
         </div>
     </div>
 
@@ -43,20 +44,33 @@
       </div>
     </div>
 
+    <!-- {% for hemisphere in hemi_list %}
+    <div class = "row">
+      <div class="col-md-3">
+        <div class="card" style="width: 20rem;">
+          <img src= "{{ mission['Hemispheres'] }}" class="card-img-top" alt= "Hemispheres">
+          <div class="card-body">
+            <h4 class="card-title"><strong>{{mission['Hemispheres']}}</strong></h4>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %} -->
+
     <div class = "row">
       <div class="col-md-6">
         <div class="card" style="width: 18rem;">
-          <img src= {{mission.hemi_list}} class="card-img-top" alt= {{mission.hemi_list}}>
+          <img src= "{{ mission['Hemispheres']['ImageURL'[0][0]]}}" class="card-img-top" alt= "Hemispheres">
           <div class="card-body">
-            <h5 class="card-title"><strong>Card title</strong></h5>
+            <h5 class="card-title"><strong>"{{ mission['Hemispheres']['Title'[0][1]]}}"</strong></h5>
           </div>
         </div>
 
         <div class="col-md-6">
           <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
+            <img src= "{{ mission['Hemispheres']['ImageURL'[1][0]]}}" class="card-img-top" alt= "Hemispheres">
             <div class="card-body">
-              <h5 class="card-title"><strong>Card title2</strong></h5>
+              <h5 class="card-title"><strong>"{{ mission['Hemispheres']['Title'[1][1]]}}"</strong></h5>
             </div>
           </div>  
         </div>
@@ -65,17 +79,17 @@
     <div class = "row">
       <div class="col-md-6">
         <div class="card" style="width: 18rem;">
-          <img src="..." class="card-img-top" alt="...">
+          <img src= "{{ mission['Hemispheres']['ImageURL'[2][0]]}}" class="card-img-top" alt= "Hemispheres">
           <div class="card-body">
-            <h5 class="card-title"><strong>Card title3</strong></h5>
+            <h5 class="card-title"><strong>"{{ mission['Hemispheres']['Title'[2][1]]}}"</strong></h5>
           </div>
         </div>
 
         <div class="col-md-6">
           <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
+            <img src= "{{ mission['Hemispheres']['ImageURL'[3][0]]}}" class="card-img-top" alt= "Hemispheres">
             <div class="card-body">
-              <h5 class="card-title"><strong>Card title4</strong></h5>
+              <h5 class="card-title"><strong>"{{ mission['Hemispheres']['Title'[3][1]]}}"</strong></h5>
             </div>
           </div>  
         </div>

@@ -1,17 +1,16 @@
 #!/usr/bin/env python
 # coding: utf-8
 
+#Dependencies
+from splinter import Browser
+from bs4 import BeautifulSoup
+import pandas as pd
+import time
+import requests
+
 # In[1]:
 
 def scrape():
-
-    #Dependencies
-    from splinter import Browser
-    from bs4 import BeautifulSoup
-    import pandas as pd
-    import time
-    import requests
-
 
     # In[2]:
 
@@ -49,19 +48,30 @@ def scrape():
 
 
     #Retrieve first article
-    first_art = soup1.find('div', class_= 'list_text')
+    # first_art = soup1.find('li', class_= 'slide')
 
     # In[12]:
 
 
     #Use Beautiful Soup's find() method to navigate and retrieve attributes
 
-    news_title = first_art.find('a').get_text()
+    # step1 = soup1.find('div', class_='image_and_description_container')
+    # step2 = step1.find('div', class_='list_text')
+    # news_title = step2.find('div', class_='content_title').get_text
+
+    try:
+        step1 = soup1.select_one('div.image_and_description_container div.list_text')
+        #find news title
+        news_title = step1.find("div", class_="content_title").text
+        #find news paragraph
+        news_p= step1.find("div", class_="article_teaser_body").text
+    except:
+        return None, None
 
     #Add news_title to the mars_dict dictionary
     mars_dict['News Title'] = news_title
 
-    news_p = soup1.find('div', class_= 'article_teaser_body').text
+    # news_p = soup1.find('div', class_= 'article_teaser_body').get_text
 
     #Add news_p to the mars_dict dictionary
     mars_dict["News Para."] = news_p
