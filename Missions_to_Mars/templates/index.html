@@ -26,74 +26,65 @@
       </div>
     </div>
 
-    <div class = "row">
-        <div class="col-md-7">
-            <h2><strong>Featured Mars Image</strong></h2>
-            <img src = "{{mission['Featured Image URL']}}" width:='700' height='600' class="rounded float-left" alt="Featured Image" />
-        </div>
-        <div class="col-md-5">
-            <h4><strong>Mars Facts</strong></h4>
-            <p>{{mission['Mars Table']}}</p>
-        </div>
-    </div>
-
-    <div class = "row">
-      <div class="col-md-12">
-          <h2><strong><center>Mars Hemispheres</center></strong></h2>
-          <hr>  
+    <div class="row">
+      <div class="col-md-7">
+        <h2><strong>Featured Mars Image</strong></h2>
+        <img src="{{mission['Featured Image URL']}}" width:='575' height='375' class="rounded float-left"
+          alt="Featured Image" />
+      </div>
+      <div class="col-md-5">
+        <h4><strong>Mars Facts</strong></h4>
+        {{mission['Mars Table'] | safe}}
       </div>
     </div>
 
-    <!-- {% for hemisphere in hemi_list %}
-    <div class = "row">
-      <div class="col-md-3">
-        <div class="card" style="width: 20rem;">
-          <img src= "{{ mission['Hemispheres'] }}" class="card-img-top" alt= "Hemispheres">
+    <div class="row">
+      <h2 class="text-center"> <strong>Mars Hemispheres</strong></h2>
+      <hr>
+
+      <div class="row">
+        <div class="col-md-6">
+        <div class="card text-white text-center bg-dark mb-3" style="width: 40rem;">
+          <img src="{{mission.Hemispheres[0].ImageURL}}" width:='486' height='380' class="card-img-top" alt="Hemispheres">
           <div class="card-body">
-            <h4 class="card-title"><strong>{{mission['Hemispheres']}}</strong></h4>
+            <h5 class="card-title"><strong>{{mission.Hemispheres[0].Title}}</strong></h5>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="card text-white text-center bg-dark mb-3" style="width: 40rem;">
+          <img src="{{mission.Hemispheres[1].ImageURL}}" width:='486' height='380' class="card-img-top" alt="Hemispheres">
+          <div class="card-body">
+            <h5 class="card-title"><strong>{{mission.Hemispheres[1].Title}}</strong></h5>
           </div>
         </div>
       </div>
     </div>
-    {% endfor %} -->
 
-    <div class = "row">
+    <div class="row">
       <div class="col-md-6">
-        <div class="card" style="width: 18rem;">
-          <img src= "{{ mission['Hemispheres']['ImageURL'[0][0]]}}" class="card-img-top" alt= "Hemispheres">
-          <div class="card-body">
-            <h5 class="card-title"><strong>"{{ mission['Hemispheres']['Title'[0][1]]}}"</strong></h5>
-          </div>
+      <div class="card text-white text-center bg-dark mb-3" style="width: 40rem;">
+        <img src="{{mission.Hemispheres[2].ImageURL}}" width:='486' height='380' class="card-img-top" alt="Hemispheres">
+        <div class="card-body">
+          <h5 class="card-title"><strong>{{mission.Hemispheres[2].Title}}</strong></h5>
         </div>
-
-        <div class="col-md-6">
-          <div class="card" style="width: 18rem;">
-            <img src= "{{ mission['Hemispheres']['ImageURL'[1][0]]}}" class="card-img-top" alt= "Hemispheres">
-            <div class="card-body">
-              <h5 class="card-title"><strong>"{{ mission['Hemispheres']['Title'[1][1]]}}"</strong></h5>
-            </div>
-          </div>  
-        </div>
+      </div>
     </div>
 
-    <div class = "row">
-      <div class="col-md-6">
-        <div class="card" style="width: 18rem;">
-          <img src= "{{ mission['Hemispheres']['ImageURL'[2][0]]}}" class="card-img-top" alt= "Hemispheres">
-          <div class="card-body">
-            <h5 class="card-title"><strong>"{{ mission['Hemispheres']['Title'[2][1]]}}"</strong></h5>
-          </div>
+    <div class="col-md-6">
+      <div class="card text-white text-center bg-dark mb-3" style="width: 40rem;">
+        <img src="{{mission.Hemispheres[3].ImageURL}}" width:='486' height='380' class="card-img-top" alt="Hemispheres">
+        <div class="card-body">
+          <h5 class="card-title"><strong>{{mission.Hemispheres[3].Title}}</strong></h5>
         </div>
-
-        <div class="col-md-6">
-          <div class="card" style="width: 18rem;">
-            <img src= "{{ mission['Hemispheres']['ImageURL'[3][0]]}}" class="card-img-top" alt= "Hemispheres">
-            <div class="card-body">
-              <h5 class="card-title"><strong>"{{ mission['Hemispheres']['Title'[3][1]]}}"</strong></h5>
-            </div>
-          </div>  
-        </div>
+      </div>
     </div>
+  </div>
+
+  </div>
+  ​
+  </div>
 
   </div>
 </body>

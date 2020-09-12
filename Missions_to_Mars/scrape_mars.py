@@ -147,12 +147,15 @@ def scrape():
     df = mars_table[0]
     df
 
+    #Remove header column
+    df.columns = df.iloc[0]
+    df = df[1:]
 
     # In[33]:
 
 
     #Convert the DataFrame table to HTML
-    html_table = df.to_html()
+    html_table = df.to_html(index=False)
     html_table
 
 
